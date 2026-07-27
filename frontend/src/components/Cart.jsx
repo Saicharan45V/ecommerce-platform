@@ -14,7 +14,7 @@ function Cart() {
             return;
         }
 
-        fetch('http://localhost:5000/api/cart', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/cart`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -42,7 +42,7 @@ function Cart() {
 
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/api/checkout', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/checkout`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ function Cart() {
     const removeItem = async (id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`http://localhost:5000/api/cart/remove/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cart/remove/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ function Cart() {
     const addItem = async (id, item_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`http://localhost:5000/api/cart/add/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cart/add/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

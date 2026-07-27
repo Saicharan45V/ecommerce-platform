@@ -19,7 +19,7 @@ function ProductDetails() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/cart', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cart`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function ProductDetails() {
 
     useEffect(() => {
         // You will need a backend route to fetch a SINGLE product by its ID
-        fetch(`http://localhost:5000/api/products/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
             .catch(err => console.error("Error fetching product:", err));

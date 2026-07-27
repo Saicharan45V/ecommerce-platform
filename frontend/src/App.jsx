@@ -14,7 +14,7 @@ function App() {
 
   // Fetch products for the home page
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
+    fetch(`${import.meta.env.VITE_API_URL}/api/products`)
       .then((res) => {
         if (!res.ok) throw new Error("Backend returned an error");
         return res.json();

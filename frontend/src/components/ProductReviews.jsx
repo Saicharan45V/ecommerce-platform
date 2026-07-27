@@ -5,7 +5,7 @@ function ProductReviews({ productId }) {
 
     useEffect(() => {
         // Fetching reviews for this specific product
-        fetch(`http://localhost:5000/api/reviews/${productId}`)
+        fetch(`${import.meta.env.VITE_API_URL}/api/reviews/${productId}`)
             .then(response => response.json())
             .then(data => {
                 setReviews(data);
